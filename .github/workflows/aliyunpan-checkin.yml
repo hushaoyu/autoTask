@@ -31,7 +31,7 @@ jobs:
 
       - name: Run checkin script
         run: |
-          cd autoTask && python aliyunpan.py
+          python aliyunpan.py
         env:
           ALIYUN_ACCOUNTS: ${{ secrets.ALIYUN_ACCOUNTS }}
 
