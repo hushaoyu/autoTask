@@ -13,7 +13,7 @@ def send_feishu(webhook_url, report):
     payload = {
         "msg_type": "text",
         "content": {
-            "text": f"📊 阿里云盘签到报告\n\n{report}"
+            "text": f"📊 自动任务报告\n\n{report}"
         }
     }
     response = requests.post(webhook_url, json=payload)
@@ -24,7 +24,7 @@ def send_telegram(bot_token, chat_id, report):
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = {
         "chat_id": chat_id,
-        "text": f"📊 阿里云盘签到报告\n\n{report}"
+        "text": f"📊 自动任务报告\n\n{report}"
     }
     response = requests.post(url, json=payload)
     return response.status_code == 200
@@ -34,7 +34,7 @@ def send_wechat(webhook_url, report):
     payload = {
         "msgtype": "text",
         "text": {
-            "content": f"📊 阿里云盘签到报告\n\n{report}"
+            "content": f"📊 自动任务报告\n\n{report}"
         }
     }
     response = requests.post(webhook_url, json=payload)
@@ -71,8 +71,8 @@ def send(title, content):
 
 def main():
     # 简单的报告内容
-    report = "阿里云盘签到任务已执行"
-    send("阿里云盘签到", report)
+    report = "自动任务已执行"
+    send("自动任务报告", report)
 
 if __name__ == "__main__":
     main()
